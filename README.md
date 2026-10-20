@@ -120,6 +120,8 @@ Rules get every matched endpoint, both full documents and a `$ref` resolver, and
 
 ## How it's tested
 
+See [TESTING.md](TESTING.md) for how to run the tests and what each one checks.
+
 - `npm test` runs 19 tests with Node's built-in test runner: each rule, `$ref` and recursive schemas, path-parameter renames, custom rules, and the CLI's output and exit codes.
 - GitHub Actions runs the type check, tests, demo and built CLI on **Windows, macOS and Linux** with Node 22 and 24 on every push.
 
