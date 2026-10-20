@@ -1,0 +1,45 @@
+{
+  "name": "specdrift",
+  "version": "0.1.0",
+  "description": "Find breaking changes between two OpenAPI specs, explained in plain English. TypeScript-native and extensible with your own rules.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "specdrift": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "prepare": "npm run build",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test \"test/*.test.ts\"",
+    "demo": "node scripts/demo.ts"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "openapi",
+    "swagger",
+    "breaking-changes",
+    "api",
+    "diff",
+    "cli",
+    "typescript"
+  ],
+  "author": "Michelle Vava",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "typescript": "^7.0.2"
+  }
+}
