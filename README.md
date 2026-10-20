@@ -7,6 +7,8 @@ Find the changes in your API that will break the apps using it, **before** you r
 
 Give specdrift the old and new version of an OpenAPI spec. It tells you, in plain English, which changes are **breaking**, which are **risky**, and which are **safe**. It's written in TypeScript, runs with Node, and you can add your own rules.
 
+> **Data flow:** two local spec files in → a report out. specdrift never calls your API, makes no network requests, and nothing leaves your machine.
+
 ```
 $ specdrift plant-shop-v1.json plant-shop-v2.json
 
