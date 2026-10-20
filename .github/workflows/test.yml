@@ -3,6 +3,7 @@ name: test
 on:
   push:
   pull_request:
+  workflow_dispatch:   # adds a "Run workflow" button on the Actions tab
 
 jobs:
   test:
@@ -28,3 +29,18 @@ jobs:
           set +e
           node dist/cli.js examples/plant-shop-v1.json examples/plant-shop-v2.json
           test $? -eq 1
+      - name: Show tests and demo on the run page
+        if: matrix.os == 'ubuntu-latest' && matrix.node == 24
+        env:
+          NO_COLOR: 1
+        run: |
+          {
+            echo '## Tests'
+            echo '```'
+            node --test --test-reporter=spec "test/*.test.ts"
+            echo '```'
+            echo '## Demo: plant shop API v1 → v2'
+            echo '```'
+            npm run demo --silent
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
